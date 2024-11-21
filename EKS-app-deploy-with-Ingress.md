@@ -36,12 +36,12 @@ WHY EKS ?
 **STEPS TO DEPLOY**
 
 - Install AWS CLI, kubectl and eksctl, install from respective official documentation( and ignore below script)  or else use below bash script 
-```
-install-prerequisites.sh 
-chmod +x install-prerequisites.sh
-./install-prerequisites.sh
+    ```
+    install-prerequisites.sh 
+    chmod +x install-prerequisites.sh
+    ./install-prerequisites.sh
 
-```
+    ```
 
 - create EKS cluster: (Replace clustername and region according to your choice)
 
@@ -167,20 +167,23 @@ kubectl get pods -n kube-system
 
 ### Encountered new keywords:
 
-CoreDNS is particularly useful in environments where dynamic service discovery is crucial,
-- CoreDNS serves as the default DNS server for Kubernetes environments 
-- Automatically managing DNS entries for services and pods.
+1. CoreDNS is particularly useful in environments where dynamic service discovery is crucial,
+    - CoreDNS serves as the default DNS server for Kubernetes environments 
+    - Automatically managing DNS entries for services and pods.
 
 
-Service Account
-- a Service Account is an identity for processes running within a pod, allowing those processes to interact with the Kubernetes API and other resources.
+2. Service Account
+    - a Service Account is an identity for processes running within a pod, allowing those processes to interact with the Kubernetes API and other resources.
 
-OIDC provider
-- service accounts are used to grant identities to applications (pods) running inside the cluster. However, Kubernetes does not natively handle AWS IAM roles or permissions.
-- OIDC provider bridges this gap by enabling a way to associate a Kubernetes service account with an IAM role. This allows pods in the cluster to assume that IAM role and access AWS resources securely, without needing AWS access keys hardcoded in the pods.
-    - Create an IAM role with a policy that grants access to specific AWS resources (e.g., S3, DynamoDB).
-    - Attach the role to a Kubernetes service account.
-    - Use OIDC to authenticate the service account to assume the IAM role when a pod requests access to AWS resources.
 
-- OIDC allows pods to authenticate directly with AWS by assuming IAM roles dynamically without needing static credentials.
-- When using IAM roles with OIDC, the permissions for a pod are temporary (short-lived credentials), which reduces the risk associated with long-lived access keys
+3. OIDC provider
+    - service accounts are used to grant identities to applications (pods) running inside the cluster. However, Kubernetes does not natively handle AWS IAM roles or permissions.
+    - OIDC provider bridges this gap by enabling a way to associate a Kubernetes service account with an IAM role. This     allows pods in the cluster to assume that IAM role and access AWS resources securely, without needing AWS access keys hardcoded in the pods.
+        - Create an IAM role with a policy that grants access to specific AWS resources (e.g., S3, DynamoDB).
+        - Attach the role to a Kubernetes service account.
+        - Use OIDC to authenticate the service account to assume the IAM role when a pod requests access to AWS resources.
+
+    - OIDC allows pods to authenticate directly with AWS by assuming IAM roles dynamically without needing static credentials.
+    - When using IAM roles with OIDC, the permissions for a pod are temporary (short-lived credentials), which reduces the risk associated with long-lived access keys
+
+    *Happy Learning !!*
