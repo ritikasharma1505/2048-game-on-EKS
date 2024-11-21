@@ -35,9 +35,9 @@ WHY EKS ?
 
 **STEPS TO DEPLOY**
 
-- Install AWS CLI, kubectl and eksctl, install from respective official documentation( and ignore below script)  or else use below bash script 
+- Install AWS CLI, kubectl and eksctl, install from respective official documentation( and ignore below script)  or else use below bash script give permission and run script
+    
     ```
-    install-prerequisites.sh 
     chmod +x install-prerequisites.sh
     ./install-prerequisites.sh
 
@@ -186,4 +186,9 @@ kubectl get pods -n kube-system
     - OIDC allows pods to authenticate directly with AWS by assuming IAM roles dynamically without needing static credentials.
     - When using IAM roles with OIDC, the permissions for a pod are temporary (short-lived credentials), which reduces the risk associated with long-lived access keys
 
+
+    
+    Big thanks to Abhishek Veeramalla for his guidance through video tutorial !!
+    
+    
     *Happy Learning !!*
